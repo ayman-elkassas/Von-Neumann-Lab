@@ -1,0 +1,196 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Von_Nouman_Arch
+{
+    public partial class innerApp : Form
+    {
+        public innerApp()
+        {
+            InitializeComponent();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label6_MouseHover(object sender, EventArgs e)
+        {
+            label6.BackColor = System.Drawing.Color.FromArgb(234, 22, 5);
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.BackColor = System.Drawing.Color.FromArgb(63,133,254);
+        }
+
+        private void label10_MouseHover(object sender, EventArgs e)
+        {
+            label10.BackColor = System.Drawing.Color.FromArgb(83, 169, 72);
+        }
+
+        private void label10_MouseLeave(object sender, EventArgs e)
+        {
+            label10.BackColor = System.Drawing.Color.FromArgb(63, 133, 254);
+        }
+
+        private void panel8_Click(object sender, EventArgs e)
+        {
+            int load = int.Parse(txtLoad.Text);
+            int add = int.Parse(txtAdd.Text);
+            int store = int.Parse(txtStore.Text);
+
+            txtLoad.ReadOnly = true;
+            txtAdd.ReadOnly = true;
+            txtStore.ReadOnly = true;
+        }
+
+        int labely = 23;
+        int txty = 20;
+        int count = 0;
+
+        
+        List<int> pcAddress = new List<int>();
+        
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+
+            bool check = true;
+            memory.Visible = false;
+            txtisempty.Visible = false;
+            redarrow.Visible = true;
+
+            int PC = int.Parse(txtPc.Text);
+            int IR = int.Parse(txtIR.Text);
+
+            pcAddress.Add(PC);
+
+            for(int i=0;i<pcAddress.Count-1;i++)
+            {
+                if (pcAddress.Last() == pcAddress[i])
+                {
+                    check=false;
+                }
+            }
+
+            
+            if (pcAddress.Last() > pcAddress[pcAddress.Count - 1] + 1)
+            {
+                check = false;
+                Panel p = new Panel();
+                listBox1.Controls.Add(p);
+                p.Location = new Point(60, txty);
+                p.BackgroundImage = Properties.Resources.Untitled555_1;
+                p.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                p.Size = new System.Drawing.Size(32, 33);
+            }
+            
+
+            if(check)
+            {
+
+            Label l = new Label();
+            listBox1.Controls.Add(l);
+            
+            l.Text = txtPc.Text;
+            l.Size = new System.Drawing.Size(36, 20);
+            l.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            l.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+
+            TextBox t = new TextBox();
+            listBox1.Controls.Add(t);
+            
+            t.Text = txtIR.Text;
+            t.Size = new System.Drawing.Size(161, 20);
+            t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            t.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(133)))), ((int)(((byte)(254)))));
+
+            if (count == 0)
+            {
+                l.Location = new System.Drawing.Point(45, labely);
+                t.Location = new System.Drawing.Point(96, txty);
+                txty += 30;
+                labely += 30;
+                count++;
+            }
+            else
+            {
+                l.Location = new System.Drawing.Point(45, labely);
+                t.Location = new System.Drawing.Point(96, txty);
+                txty += 30;
+                labely += 30;
+                count++;
+            }
+
+            }
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+            
+            
+             
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void txtLoad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void innerApp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
